@@ -1,0 +1,60 @@
+{
+  "registros_base_integral": 1092158,
+  "registros_recorte": 62590,
+  "registros_base_integral_por_ano": {
+    "2024": 505950,
+    "2025": 586208
+  },
+  "registros_recorte_por_ano": {
+    "2024": 28357,
+    "2025": 34233
+  },
+  "duplicados_id_base_integral": 0,
+  "datas_invalidas_base_integral": 0,
+  "valores_invalidos_base_integral": {
+    "ValorEmpenho": 0,
+    "ValorLiquidado": 0,
+    "ValorPago": 0,
+    "ValorRap": 0
+  },
+  "ausencias_recorte": {
+    "Id": 0,
+    "Ano": 0,
+    "Data": 0,
+    "ValorEmpenho": 0,
+    "ValorLiquidado": 0,
+    "ValorPago": 0,
+    "ValorRap": 0,
+    "Funcao": 0,
+    "Subtitulo": 0,
+    "SubFuncao": 0,
+    "Programa": 0,
+    "Acao": 0,
+    "UnidadeGestora": 0
+  },
+  "valores_negativos_recorte": {
+    "ValorEmpenho": 1258,
+    "ValorLiquidado": 11516,
+    "ValorPago": 986,
+    "ValorRap": 80
+  },
+  "registros_por_funcao": {
+    "GESTÃO AMBIENTAL": 28142,
+    "HABITAÇÃO": 199,
+    "SANEAMENTO": 1499,
+    "TRANSPORTE": 26263,
+    "URBANISMO": 6487
+  },
+  "rotulos_reconstruidos_2025": {
+    "Funcao": 586208,
+    "SubFuncao": 586006,
+    "Programa": 586206,
+    "Subtitulo": 586208
+  },
+  "rotulos_fallback_2025": {
+    "Funcao": 0,
+    "SubFuncao": 202,
+    "Programa": 2,
+    "Subtitulo": 0
+  }
+}

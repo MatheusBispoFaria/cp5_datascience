@@ -5,6 +5,13 @@ from pathlib import Path
 
 import pandas as pd
 
+import json
+
+PROCESSED_DIR = BASE_DIR / "data" / "processed"
+
+PARQUET_PATH = PROCESSED_DIR / "despesas_poc.parquet"
+AUDITORIA_PATH = PROCESSED_DIR / "auditoria.json"
+
 BASE_DIR = Path(__file__).resolve().parents[1]
 RAW_DIR = BASE_DIR / "data" / "raw"
 ANOS_ANALISADOS = [2024, 2025]
@@ -417,13 +424,33 @@ def _carregar_base_e_auditoria() -> tuple[pd.DataFrame, dict]:
 
 @lru_cache(maxsize=1)
 def carregar_base() -> pd.DataFrame:
-    """Retorna o recorte temático 2024-2025 já preparado para o dashboard."""
+    """
+    Carrega preferencialmente a base tratada.
+
+    Em desenvolvimento, caso o Parquet não exista,
+    utiliza os dados brutos.
+    """
+
+    if PARQUET_PATH.exists():
+        return pd.read_parquet(PARQUET_PATH)
+
     return _carregar_base_e_auditoria()[0]
 
 
 @lru_cache(maxsize=1)
 def auditoria_base() -> dict:
-    """Retorna os indicadores de qualidade calculados durante a carga."""
+    """
+    Carrega a auditoria previamente calculada.
+    """
+
+    if AUDITORIA_PATH.exists():
+        with open(
+            AUDITORIA_PATH,
+            "r",
+            encoding="utf-8",
+        ) as arquivo:
+            return json.load(arquivo)
+
     return _carregar_base_e_auditoria()[1]
 
 
