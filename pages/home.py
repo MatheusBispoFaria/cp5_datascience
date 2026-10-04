@@ -21,7 +21,7 @@ def _inteiro(valor: int) -> str:
     return f"{int(valor):,}".replace(",", ".")
 
 
-def layout():
+def layout(**kwargs):
     if not dados_disponiveis():
         return html.Div(
             [
