@@ -4,3 +4,4 @@ plotly>=6.0
 pandas>=2.2
 numpy>=1.26
 scipy>=1.11
+gunicorn>=23.0
