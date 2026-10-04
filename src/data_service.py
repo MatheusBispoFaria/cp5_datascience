@@ -3,17 +3,23 @@ from __future__ import annotations
 from functools import lru_cache
 from pathlib import Path
 
+import json
 import pandas as pd
 
-import json
 
+# ============================================================
+# CAMINHOS DO PROJETO
+# ============================================================
+
+BASE_DIR = Path(__file__).resolve().parents[1]
+
+RAW_DIR = BASE_DIR / "data" / "raw"
 PROCESSED_DIR = BASE_DIR / "data" / "processed"
 
 PARQUET_PATH = PROCESSED_DIR / "despesas_poc.parquet"
 AUDITORIA_PATH = PROCESSED_DIR / "auditoria.json"
 
-BASE_DIR = Path(__file__).resolve().parents[1]
-RAW_DIR = BASE_DIR / "data" / "raw"
+
 ANOS_ANALISADOS = [2024, 2025]
 
 AREAS_MONITORADAS = [
