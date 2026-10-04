@@ -94,8 +94,25 @@ def arquivos_dados() -> dict[int, list[Path]]:
 
 
 def dados_disponiveis() -> bool:
+    """
+    Verifica se existe uma fonte de dados utilizável.
+
+    Produção:
+    - Parquet pré-processado + auditoria.
+
+    Desenvolvimento:
+    - 4 ZIPs de 2024 + 4 ZIPs de 2025.
+    """
+
+    if PARQUET_PATH.exists() and AUDITORIA_PATH.exists():
+        return True
+
     arquivos = arquivos_dados()
-    return all(len(arquivos[ano]) == 4 for ano in ANOS_ANALISADOS)
+
+    return all(
+        len(arquivos[ano]) == 4
+        for ano in ANOS_ANALISADOS
+    )
 
 
 def _texto_vazio(serie: pd.Series) -> pd.Series:
